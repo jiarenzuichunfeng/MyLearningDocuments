@@ -44,3 +44,5 @@
 
   * 目标：明确vuex同样遵循单向数据流，组件中不能直接修改仓库的数据
   * 通过：strict：true 开启严格模式
+    1. 定义mutations对象，对象中存放修改state的方法
+    2. 组件中提交调用mutations
