@@ -1,0 +1,22 @@
+# 21-Java基本数运算Math
+
+```
+public class MathTest {
+    public static void main(String[] args) {
+        // 计算平方根
+        System.out.println(Math.sqrt(16));
+        // 计算立方根
+        System.out.println(Math.cbrt(8));
+        // 两个数的最大
+        System.out.println(Math.max(2.9,4.5));
+        // 两个数的最小
+        System.out.println(Math.min(2.9,4.5));
+        // ceil向上取整，更大的值方向靠拢
+        System.out.println(Math.ceil(19.7));
+        // floor向下取整
+        System.out.println(Math.floor(-19.7));
+        // 随机数,小于1大于等于0的double类型的数
+        System.out.println(Math.random());
+    }
+}
+```
