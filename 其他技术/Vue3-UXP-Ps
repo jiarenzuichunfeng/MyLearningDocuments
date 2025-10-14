@@ -1,0 +1,55 @@
+# Vue3-UXP-Ps
+
+* manifest.json 清单文件
+
+  ``` json
+  {
+      "manifestVersion": 4, // UXP 版本
+      "id": "YOUR_ID_HERE", // 插件ID
+      "name": "Name of your plugin", // 插件名称
+      "version": "1.0.0", // 插件版本
+      "main": "index.html", // 入口文件
+      "host": {  						// 宿主软件
+          "app": "PS",      // 宿主名字 目前只有XD和PS
+          "minVersion": "23.0.0", // 最小宿主版本
+        	"maxVersion": "24.0.0", // 最大宿主版本
+         	"data" : {
+            "apiVersion": 2,    // Photoshop 2022 同时支持原始和新的 JavaScript 模式。插件使用 apiVersion 字段来指定它使用哪种模型 1：原始 2：新模式  不写则根据版本自动分配，版本低于23.0.0 自动分配为1,高于 自动分配为2
+            "loadEvent": "use",  // use 用户启动插件  startup 自动启动插件
+            "enableMenuRecording": true
+          },
+  
+      },
+      "entrypoints": [        // 宿主环境窗口
+          {
+              "type": "command",
+              "id": "commandFn",
+              "label": {
+                  "default": "Show A Dialog"
+              }
+          },
+          {
+              "type": "panel",   //  自定义窗口
+              "id": "panelName", //  窗口
+              "label": {
+                  "default": "Panel Name"
+              },
+              "minimumSize": {"width": 230, "height": 200}, //  最小窗口宽度
+              "maximumSize": {"width": 2000, "height": 2000}, // 最大窗口宽度
+              "preferredDockedSize": {"width": 230, "height": 300},
+              "preferredFloatingSize": {"width": 230, "height": 300},
+              "icons": [
+                  {"width":23,"height":23,"path":"icons/dark.png","scale":[1,2],"theme":["darkest","dark","medium"]},
+                  {"width":23,"height":23,"path":"icons/light.png","scale":[1,2],"theme":["lightest","light"]}
+              ]
+          }
+      ],
+      "icons": [  		// 
+          { "width": 23, "height": 23, "path": "icons/icon_D.png", "scale": [ 1, 2 ], "theme": [ "dark", "darkest" ], "species": [ "generic" ] },
+          { "width": 23, "height": 23, "path": "icons/icon_N.png", "scale": [ 1, 2 ], "theme": [ "lightest", "light" ], "species": [ "generic" ] }
+      ]
+  }
+  
+  ```
+
+  
