@@ -133,8 +133,23 @@
 查询文件
 	find 从哪里开始查  查询标准 要查询的文件或文件夹
 对排序好的内容进行统计
-	uniq
+	uniq -c 文件名 
 对内容进行排序
 	sort
+查看文件系统的磁盘使用情况
+	df
+	df -h
+查看网络端口的使用情况
+	netstat -tunlp  -t 显示tcp端口 -u显示udp端口 -n指明拒绝显示的别名 -l 指明listen -p 指令显示建立相关连接的程序名
+查看主机名
+	hostname
+显示所有进程信息
+	ps
+	ps -ef 
+杀进程
+	kill
+监控linux系统状况
+	top
+	du
 ```
 

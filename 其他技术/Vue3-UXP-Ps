@@ -14,31 +14,33 @@
           "minVersion": "23.0.0", // 最小宿主版本
         	"maxVersion": "24.0.0", // 最大宿主版本
          	"data" : {
-            "apiVersion": 2,    // Photoshop 2022 同时支持原始和新的 JavaScript 模式。插件使用 apiVersion 字段来指定它使用哪种模型 1：原始 2：新模式  不写则根据版本自动分配，版本低于23.0.0 自动分配为1,高于 自动分配为2
+            "apiVersion": 2,    // Photoshop 2022 同时支持原始和新的 JavaScript 模式。插件使用 apiVersion 字段来指定它使用哪种模型 1：原始 2：新模式  不写则根据版本自动分配，版本低于23.0.0 自动分配为1,高于 自动分配为2 原始和新模式的区别，新模式对插件进行了限制，同一时间内，只能有一个插件对ps进行修改
             "loadEvent": "use",  // use 用户启动插件  startup 自动启动插件
-            "enableMenuRecording": true
+            "enableMenuRecording": true // 记录可执行命令
           },
   
       },
       "entrypoints": [        // 宿主环境窗口
           {
-              "type": "command",
+              "type": "command", // 定义可执行命令
               "id": "commandFn",
               "label": {
-                  "default": "Show A Dialog"
-              }
+                  "default": "Show A Dialog"  
+              },
+            "shortcut":[]  // 定义mac和win快捷键对象
           },
           {
-              "type": "panel",   //  自定义窗口
-              "id": "panelName", //  窗口
+              "type": "panel",   //  定义窗口
+              "id": "panelName", //  是窗口入口点，如果改变次属性需要再mian.js中 entrypoints.setup方法下的panels属性中添加或修改为id值
               "label": {
-                  "default": "Panel Name"
+                  "default": "Panel Name", // 窗口名称
+                "其它语言缩写"："窗口名称",
               },
               "minimumSize": {"width": 230, "height": 200}, //  最小窗口宽度
               "maximumSize": {"width": 2000, "height": 2000}, // 最大窗口宽度
               "preferredDockedSize": {"width": 230, "height": 300},
               "preferredFloatingSize": {"width": 230, "height": 300},
-              "icons": [
+              "icons": [  // 最小化标题图标
                   {"width":23,"height":23,"path":"icons/dark.png","scale":[1,2],"theme":["darkest","dark","medium"]},
                   {"width":23,"height":23,"path":"icons/light.png","scale":[1,2],"theme":["lightest","light"]}
               ]
@@ -51,5 +53,149 @@
   }
   
   ```
-
   
+* 
+
+* ```json
+  {
+    "manifestVersion": 5, // UXP新版本
+    "id": "YOUR_ID_HERE",
+    "name": "Name of your plugin",
+    "version": "1.0.0",
+    "main": "index.html",
+    "host": {
+      "app": "PS",
+      "minVersion": "23.3.0"
+    },
+    "entrypoints": [
+      {
+        "type": "command",
+        "id": "commandFn",
+        "label": {
+          "default": "Show A Dialog"
+        }
+      },
+      {
+        "type": "panel",
+        "id": "panelName",
+        "label": {
+          "default": "Panel Name"
+        },
+        "minimumSize": {"width": 230, "height": 200},
+        "maximumSize": {"width": 2000, "height": 2000},
+        "preferredDockedSize": {"width": 230, "height": 300},
+        "preferredFloatingSize": {"width": 230, "height": 300},
+        "icons": [
+          {"width":23,"height":23,"path":"icons/dark.png","scale":[1,2],"theme":["darkest","dark","medium"]},
+          {"width":23,"height":23,"path":"icons/light.png","scale":[1,2],"theme":["lightest","light"]}
+        ]
+      }
+    ],
+    "icons": [
+      { "width": 23, "height": 23, "path": "icons/icon_D.png", "scale": [ 1, 2 ], "theme": [ "dark", "darkest" ], "species": [ "generic" ] },
+      { "width": 23, "height": 23, "path": "icons/icon_N.png", "scale": [ 1, 2 ], "theme": [ "lightest", "light" ], "species": [ "generic" ] }
+    ],
+    "requiredPermissions": {    // 声明插件权限
+      "network": {
+        "domains": [
+          "https://adobe.com",
+        ]
+      },
+      "clipboard": "readAndWrite",
+      "webview": {
+        "allow": "yes",
+        "domains": [ "https://*.adobe.com", "https://*.google.com"]
+      },
+      "launchProcess": {
+        "schemes":
+        [ "https", "slack"],
+        "extensions":
+        [ ".xd", ".psd" ]
+      },
+    },
+  }
+  ```
+
+* ```js
+  entrypoints.setup({
+      panels: {
+          helloUXP: {
+              show(event) { // event 里面有node、panel、eventName、PanelID
+                  var app4 = new Vue({
+                      el: "#container",
+                      router,
+                      components: {hello},
+                      render(h) {
+                          return h(hello);
+                      },
+                  });
+              },
+          },
+      },
+  });
+  ```
+
+ *    "manifestVersion": 5 引入了生命周期
+
+    *  ```javascript
+       import { entrypoints } from "uxp";
+       entrypoints.setup({
+           plugin: {    // 本插件全局的初始化和销毁 只触发一次
+               create() {
+                   console.log("Plugin has been loaded, plugin.create has been triggered.");
+               },
+               destroy() {
+                   return new Promise(function (resolve, reject) {
+                       console.log("Plugin has been loaded, plugin.create has been triggered.");
+                       resolve();
+                   });
+               }
+           },
+           panels: { // 插件面板的生命周期
+               panelA: {
+                   create(rootNode) { 、、
+                       return new Promise(function (resolve, reject) {
+                           console.log("PanelA is created, panelA.create has been triggered.");
+                           resolve();
+                       });
+                   },
+                   show(rootNode, data) {
+                       return new Promise(function (resolve, reject) {
+                           console.log("PanelA is about to be displayed,  panelA.show has been triggered with data ", data);
+                           resolve();
+                       });
+                   },
+                   hide(rootNode, data) {
+                       return new Promise(function (resolve, reject) {
+                           console.log("PanelA is about to be hidden,  panelA.hide has been triggered with data ", data);
+                           resolve();
+                       });
+                   },
+                   destroy(rootNode) {
+                       return new Promise(function (resolve, reject) {
+                           console.log("PanelA is about to be destroyed,  panelA.destroy has been triggered.");
+                           resolve();
+                       });
+                   },
+                   invokeMenu(menuId) {
+                       return new Promise(function (resolve, reject) {
+                           console.log("A menu item on PanelA has been invoked,  panelA.invokeMenu has been triggered with menu id ", menuId);
+                           resolve();
+                       });
+                   },
+                   menuItems: [...]
+               },
+               "panelB": {..}
+           },
+           commands: {
+               "command1": {
+                   run() {..},
+                   cancel() {..}
+               },
+               "command2": function(){..}
+           }
+       });
+       
+       ```
+
+    *  
