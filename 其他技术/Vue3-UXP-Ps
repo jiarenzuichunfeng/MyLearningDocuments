@@ -198,4 +198,19 @@
        
        ```
 
-    *  
+    *  Vue官方模板清单版本V4转V5遇到的问题
+    
+       ![image-20251021130614606](F:\Web\MyLearningDocuments\其他技术\Vue3-UXP-Ps.assets\image-20251021130614606.png)
+    
+         *   解决办法	
+    
+               *   在webpack.config.js文件中
+    
+               *   
+    
+             * ```
+               devtool: "cheap-eval-source-map",
+               // 修改为
+               devtool: "source-map",
+               ```
+    
