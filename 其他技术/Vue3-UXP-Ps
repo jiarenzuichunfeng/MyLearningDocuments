@@ -153,25 +153,25 @@
            },
            panels: { // 插件面板的生命周期
                panelA: {
-                   create(rootNode) { 、、
+                   create(rootNode) {  // 创建
                        return new Promise(function (resolve, reject) {
                            console.log("PanelA is created, panelA.create has been triggered.");
                            resolve();
                        });
                    },
-                   show(rootNode, data) {
+                   show(rootNode, data) { // 显示
                        return new Promise(function (resolve, reject) {
                            console.log("PanelA is about to be displayed,  panelA.show has been triggered with data ", data);
                            resolve();
                        });
                    },
-                   hide(rootNode, data) {
+                   hide(rootNode, data) { // 隐藏
                        return new Promise(function (resolve, reject) {
                            console.log("PanelA is about to be hidden,  panelA.hide has been triggered with data ", data);
                            resolve();
                        });
                    },
-                   destroy(rootNode) {
+                   destroy(rootNode) { // 销毁
                        return new Promise(function (resolve, reject) {
                            console.log("PanelA is about to be destroyed,  panelA.destroy has been triggered.");
                            resolve();
@@ -213,4 +213,3 @@
                // 修改为
                devtool: "source-map",
                ```
-    
