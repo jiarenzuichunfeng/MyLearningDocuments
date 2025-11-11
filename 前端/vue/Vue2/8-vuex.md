@@ -137,6 +137,4 @@
     * 直接通过模块名访问$store.dispatch['模块名/需要的方法'，额外参数]
     * ...mapActions('模块名'，['需要的方法']) 需要开启命名空间
 
-## JSON -serve 模拟后端接口  * 通过：strict：true 开启严格模式
-    1. 定义mutations对象，对象中存放修改state的方法
-    2. 组件中提交调用mutations
+## JSON -serve 模拟后端接口  
