@@ -78,3 +78,37 @@
 * do……while（）
 * brack和continue的区别
   * brack跳出一层循环continue跳过本次循环
+
+## 列表常用属性和方法
+
+* 常用属性
+  * length 长度
+  * reversed 反转
+  * isEnpty 是否为空
+  * isNotEmpty 是否不为空
+* 常用方法
+  * add 添加一个
+  * addAll 添加多个（传递数组）
+  * indexOf  查找 传入具体值
+  * remove 删除 传入具体值
+  * removeAt 删除 传入索引值
+  * fillRange 修改
+  * insert（index，value）  指定位置插入
+  * insertAll（index，list） 指定位置插入多个
+  * toList（） 其他类型转为list
+  * join（） list 转为字符串
+  * split （）字符串转为List
+  * foreach （）数组循环
+* **Set**是没有顺序且不能重复的集合，所以不能用索引去获取值
+* Map
+
+## 定义自定义方法
+
+* 返回类型 方法名称 （形参1，形参2）{return 返回值}
+* 方法传参
+  * 可选参数
+    * 返回类型 方法名称 （形参1，【形参1，形参2】）{return 返回值}
+    * 方法名（实参1，实参2） -- 位置要对应
+  * 命名参数
+    * 返回类型 方法名称 （形参1，{形参1，形参2}）{return 返回值}
+    * 方法名（实参1，形参名称：实参）
