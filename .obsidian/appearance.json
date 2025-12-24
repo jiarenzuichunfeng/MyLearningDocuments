@@ -1,7 +1,8 @@
 {
   "theme": "obsidian",
   "cssTheme": "Minimal",
-  "monospaceFontFamily": "Fira Code Retina",
+  "monospaceFontFamily": "JetBrains Mono NL",
   "textFontFamily": "华康手札体W7P",
-  "accentColor": ""
+  "accentColor": "",
+  "interfaceFontFamily": "华康手札体W7P"
 }
