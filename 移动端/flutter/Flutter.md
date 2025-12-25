@@ -8,20 +8,20 @@
 	* 需要在有状态组件或无状态组件中实现
 * 热重启
 ### MaterialApp 通过样式框架
-| 属性                       | 作用                         |
-| :------------------------- | ---------------------------- |
-| title                      | 应用名称（系统级展示）       |
-| home                       | 应用首页（初始路由）         |
-| routes                     | 命名路由表（路由管理）       |
-| initialRoute               | 初始路由名称（替代 home）    |
-| onGenerateRoute            | 动态生成路由（处理复杂路由） |
-| theme                      | 亮色主题配置                 |
-| darkTheme                  | 暗黑主题配置                 |
-| themeMode                  | 主题模式                     |
-| locale                     | 应用本地化语言               |
-| localizationsDelegates     | 本地化代理                   |
-| debugShowCheckedModeBanner | 是否显示调试标签             |
-| navigatorKey               | 全局导航键（跨组件导航）     |
+| 属性                         | 作用              |
+| :------------------------- | --------------- |
+| title                      | 应用名称（系统级展示）     |
+| home                       | 应用首页（初始路由）      |
+| routes                     | 命名路由表（路由管理）     |
+| initialRoute               | 初始路由名称（替代 home） |
+| onGenerateRoute            | 动态生成路由（处理复杂路由）  |
+| theme                      | 亮色主题配置          |
+| darkTheme                  | 暗黑主题配置          |
+| themeMode                  | 主题模式            |
+| locale                     | 应用本地化语言         |
+| localizationsDelegates     | 本地化代理           |
+| debugShowCheckedModeBanner | 是否显示调试标签        |
+| navigatorKey               | 全局导航键（跨组件导航）    |
 
 * title 
 
@@ -58,6 +58,11 @@
 * Container 盒子
 * Center 居中组件
 * Padding 内间距组件
+* Magin 外边距组件
+* Icon 图标组件
+* Text 文本组件
+* GestureDetector 手势监听器
+* Slider 滑块组件
 * 布局组件
   * Expanded 扩展组件
   * Column 垂直布局组件
