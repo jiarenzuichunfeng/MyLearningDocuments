@@ -67,3 +67,5 @@
   * Expanded 扩展组件
   * Column 垂直布局组件
   * Row 水平布局组件
+## 有状态组件生命周期方法
+* initState
