@@ -1,7 +1,4 @@
 {
-  "showLineNumber": true,
-  "tabSize": 2,
-  "attachmentFolderPath": "./附件",
   "newFileLocation": "current",
-  "autoPairMarkdown": false
+  "attachmentFolderPath": "./附件"
 }
