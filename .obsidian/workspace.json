@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "835f57e3b5dd4e13",
+        "id": "b3cadf5f167858cf",
         "type": "tabs",
         "children": [
           {
-            "id": "f5ff129e53b27dfd",
+            "id": "d30a87dc68e4c7ea",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "自考本/专业类/3.数据库原理与设计.md",
+                "file": "自考本/公共类/4.马克思原理.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "3.数据库原理与设计"
+              "title": "4.马克思原理"
             }
           }
         ]
@@ -41,7 +41,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -171,20 +171,34 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:New drawing": false,
       "bases:新建数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
-      "command-palette:打开命令面板": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "command-palette:打开命令面板": false
     }
   },
-  "active": "f5ff129e53b27dfd",
+  "active": "6486e001a1cee25e",
   "lastOpenFiles": [
-    "自考本/专业类/C++_Primer_Plus_第六版_Stephen_Prata.pdf",
+    "自考本/专业类/1.C语言.md",
+    "自考本/公共类/4.马克思原理.md",
+    "自考本/专业类/操作系统.md",
+    "Excalidraw/Drawing 2026-03-12 19.46.57.excalidraw.md",
+    "Excalidraw/Drawing 2026-03-12 19.46.54.excalidraw.md",
+    "自考本/公共类/未命名.base",
+    "未命名 2.base",
+    "未命名.canvas",
+    "未命名.base",
+    "未命名 1.base",
+    "2026-03-12.md",
+    "Excalidraw",
+    "学校前端md文档/vue2/25-后台项目环境搭建/01-环境搭建与登录/01-环境搭建与登录.md",
+    "自考本/公共类/离散数学.md",
     "自考本/专业类/3.数据库原理与设计.md",
+    "自考本/专业类/C++_Primer_Plus_第六版_Stephen_Prata.pdf",
     "自考本/专业类/附件/Pasted image 20260302211908.png",
     "自考本/专业类/附件/Pasted image 20260302211831.png",
     "自考本/专业类/附件",
